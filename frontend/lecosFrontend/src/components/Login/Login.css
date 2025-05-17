@@ -229,3 +229,147 @@ body, html {
   position: relative;
   z-index: 1;
 }
+@media (max-width: 1024px) {
+  .left-side,
+  .right-side {
+    margin-top: 3rem;
+  }
+
+  .logo-icon {
+    width: 70px;
+    height: 60px;
+  }
+
+  .brand-title {
+    font-size: 22px;
+  }
+
+  .brand-subtitle {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
+  .left-side,
+  .right-side {
+    width: 100%;
+    margin-top: 2rem;
+    min-height: auto;
+  }
+
+  .left-side {
+    order: 2;
+  }
+
+  .right-side {
+    order: 1;
+  }
+
+  .brand {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    top: 10px;
+    left: 10px;
+  }
+
+  .footer,
+  .footer-hora {
+    padding: 1rem;
+  }
+
+  .footer-text,
+  .footer-text-horario {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .footer-icons {
+    gap: 15px;
+  }
+
+  .logo-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .footer-icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .brand-title {
+    font-size: 20px;
+  }
+
+  .brand-subtitle {
+    font-size: 16px;
+  }
+
+  .page-container::before,
+  .page-container::after {
+    display: none; /* Remove as animações pesadas no mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-title {
+    font-size: 18px;
+  }
+
+  .brand-subtitle {
+    font-size: 14px;
+  }
+
+  .logo-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .footer-text,
+  .footer-text-horario {
+    font-size: 13px;
+  }
+}
+/* Oculta animações em telas menores */
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .brand {
+    position: static; /* tira do absoluto */
+    margin: 1rem auto 0 auto; /* centraliza */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+  }
+
+  .right-side {
+    margin-top: 0rem; /* compensa o espaço da logo que agora está dentro do fluxo */
+  }
+
+  .logo-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .brand-title {
+    font-size: 20px;
+  }
+
+  .brand-subtitle {
+    font-size: 16px;
+  }
+}

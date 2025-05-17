@@ -8,22 +8,39 @@ html {
 
 .page-container-cadastro {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(to right, #df6e06 45%, #887660 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  text-align: center;
 }
 
+/* Imagem de fundo transparente */
 .background-logo {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('./LogoNovo4.png'); 
+  background-image: url('./LogoNovo4.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  opacity: 0.1; 
+  opacity: 0.05;
   z-index: 0;
+  pointer-events: none; /* impede que a imagem atrapalhe cliques no formulário */
+}
+
+/* Imagem acima do formulário */
+.logo-img-topo {
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+  z-index: 2;
 }
 
 .cadastro-form {
@@ -35,9 +52,11 @@ html {
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 16px;
   padding: 5vw;
-  width: 80%;
-  max-width: 300px;
+  width: 100%;
+  max-width: 400px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1s ease-in-out;
+  margin: 0 auto;
 }
 
 .cadastro-fields {
@@ -82,22 +101,12 @@ html {
 
 .buttons-container {
   display: flex;
-  justify-content: space-between; /* separa um botão pra cada lado */
-  gap: 10px; /* espaço entre os botões */
-  margin-top: 16px; /* espaço entre os inputs e os botões */
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 16px;
 }
 
-.form-button {
-  background-color: #facc15;
-  color: #000;
-  font-weight: bold;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-}
-
+.form-button,
 .form-button-voltar {
   background-color: #facc15;
   color: #000;
@@ -109,8 +118,8 @@ html {
   transition: background-color 0.2s ease-in-out;
 }
 
-
-.form-button:hover {
+.form-button:hover,
+.form-button-voltar:hover {
   background-color: #eab308;
 }
 
@@ -144,7 +153,6 @@ p {
   font-weight: bold;
 }
 
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -156,11 +164,24 @@ p {
   }
 }
 
-.cadastro-form {
-  animation: fadeIn 1s ease-in-out;
-}
-
 .form-checkbox {
   font-size: 1rem;
   font-family: 'Courier New', Courier, monospace;
+}
+
+/* Responsividade básica para celulares */
+@media (max-width: 480px) {
+  .logo-img-topo {
+    max-width: 120px;
+    margin-bottom: 15px;
+  }
+
+  .cadastro-form {
+    padding: 4vw;
+    max-width: 90%;
+  }
+
+  .buttons-container {
+    flex-direction: column;
+  }
 }

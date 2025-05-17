@@ -1,3 +1,5 @@
+
+/* Estilos do formulário */
 .login-form {
   position: relative;
   min-height: 100px;
@@ -11,6 +13,10 @@
   width: 45%;
   max-width: 300px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .form-title {
@@ -20,6 +26,7 @@
   margin-bottom: 20px;
 }
 
+/* Estilo do formulário */
 .form-fields {
   display: flex;
   flex-direction: column;
@@ -40,6 +47,7 @@
   color: #eee;
 }
 
+/* Estilos do botão de login */
 .form-button {
   background-color: #facc15;
   color: #000;
@@ -49,13 +57,13 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
-  
 }
 
 .form-button:hover {
   background-color: #eab308;
 }
 
+/* Links para cadastro e recuperação de senha */
 .form-links {
   display: flex;
   justify-content: space-between;
@@ -74,9 +82,132 @@
   text-decoration: underline;
 }
 
+/* Mensagem de erro */
 .form-error {
   height: 20px;
   color: red;
   margin-top: 10px;
   font-size: 14px;
+}
+
+/* Estilo do campo de senha e do botão para mostrar/ocultar senha */
+.password-field {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 14px;
+  user-select: none;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+  .login-form {
+    width: 80%;
+    padding: 8vw;
+  }
+
+  .form-title {
+    font-size: 20px;
+  }
+
+  .form-input {
+    font-size: 14px;
+  }
+
+  .form-button {
+    padding: 10px;
+  }
+
+  .form-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-link {
+    font-size: 12px;
+  }
+
+  .form-error {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form {
+    width: 90%;
+    padding: 10vw;
+  }
+
+  .form-title {
+    font-size: 18px;
+  }
+
+  .form-input {
+    font-size: 12px;
+  }
+
+  .form-button {
+    padding: 8px;
+  }
+
+  .form-links {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-link {
+    font-size: 10px;
+  }
+
+  .form-error {
+    font-size: 12px;
+  }
+}
+
+/* Oculta o ícone de olho padrão do Chrome/Edge em campos de senha */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-password-reveal-button {
+  display: none;
+}
+.password-field {
+  position: relative;
+  width: 100%;
+}
+
+.senha-input {
+  padding-right: 80px; /* espaço para o botão dentro do campo */
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 6px;
+  font-weight: bold;
+  user-select: none;
+}
+
+/* Remove ícones nativos do navegador */
+input::-ms-reveal,
+input::-ms-clear,
+input::-webkit-credentials-auto-fill-button,
+input::-webkit-password-reveal-button {
+  display: none !important;
 }

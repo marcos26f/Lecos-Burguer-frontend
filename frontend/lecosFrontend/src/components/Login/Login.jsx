@@ -26,14 +26,15 @@ function Login() {
           </div>
         </div>
 
-        <div className="left-side">
-          <Lottie
-            lottieRef={lottieRef}
-            animationData={animacao}
-            loop={true}
-            style={{ width: 450, height: 450 }}
-          />
-        </div>
+        <div className="left-side hide-on-mobile">
+  <Lottie
+    lottieRef={lottieRef}
+    animationData={animacao}
+    loop={true}
+    style={{ width: 450, height: 450 }}
+  />
+</div>
+
         <div className="right-side">
           <FormLogin />
         </div>

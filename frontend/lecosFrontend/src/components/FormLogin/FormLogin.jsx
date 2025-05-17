@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 const FormLogin = () => {
   const [name, setName] = useState("cris@emai.com");
   const [senha, setSenha] = useState("1234");
-  const [error, setError] = useState(""); // estado para mensagem de erro
+  const [mostrarSenha, setMostrarSenha] = useState(false);
+  const [error, setError] = useState("");
 
   const handleName = (e) => {
     setName(e.target.value);
@@ -14,7 +15,6 @@ const FormLogin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validação dos campos
     if (!name) {
       setError("O campo e-mail é obrigatório.");
       return;
@@ -25,10 +25,9 @@ const FormLogin = () => {
       return;
     }
 
-    setError(""); // Limpa o erro se tudo estiver preenchido
+    setError("");
     console.log("Login enviado:", { name, senha });
 
-    // Limpa os campos
     setName("");
     setSenha("");
   };
@@ -44,15 +43,25 @@ const FormLogin = () => {
           value={name}
           onChange={handleName}
         />
-        <input
-          type="password"
-          placeholder="Senha"
-          className="form-input"
-          value={senha}
-          onChange={(e) => setSenha(e.target.value)}
-        />
 
-        {/* Mensagem de erro, se existir */}
+        <div className="password-field">
+          <input
+            type={mostrarSenha ? "text" : "password"}
+            placeholder="Senha"
+            className="form-input senha-input"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+          />
+          <button
+            type="button"
+            className="toggle-password"
+            onClick={() => setMostrarSenha(!mostrarSenha)}
+          >
+            {mostrarSenha ? "Ocultar" : "Mostrar"}
+          </button>
+        </div>
+
+
         <p className="form-error">{error || "\u00A0"}</p>
 
         <div className="form-links">
@@ -65,9 +74,7 @@ const FormLogin = () => {
         </div>
 
         <button type="submit" className="form-button">
-         <Link to="/pedidos" className="form-link">
-          Entrar
-          </Link>
+          <Link to="/pedidos" className="form-link">Entrar</Link>
         </button>
       </form>
     </div>
